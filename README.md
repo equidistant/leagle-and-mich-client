@@ -8,11 +8,11 @@ To be done
 
 ### `npm start`
 
-Runs the app in the development mode.
-Default is [http://localhost:3001](http://localhost:3001) to view it in the browser.
+Runs the app in the development mode.<br>
+Default is [http://localhost:3001](http://localhost:3001) to view it in the browser.<br>
 Change PORT in .env file.
 
 ### `npm run-production`
 
-Launches the app in the production mode.
+Launches the app in the production mode.<br>
 Served by simple nodejs server.
