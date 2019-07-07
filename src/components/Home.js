@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import Slideshow from './Slideshow'
-import Travels from './Travels'
+import TravelsGallery from './Travels-Gallery'
 
 export default () => {
   return (
     <>
       <Slideshow/>
-      <Travels/>
+      <TravelsGallery/>
     </>
   )
 }

@@ -28,7 +28,7 @@ class Slideshow extends Component {
     images.map((img, index) => <SImg img={img} activeId={activeId} key={index}/>)
 
   nextImage = () => {
-    const limit = 4
+    const limit = 6
     let activeId = this.state.activeId
     if (activeId === limit) {
       activeId = 0
@@ -47,7 +47,7 @@ class Slideshow extends Component {
     const limit = 0
     let activeId = this.state.activeId
     if (activeId === limit) {
-      activeId = 4
+      activeId = 6
     } else {
       activeId -= 1
     }
@@ -92,6 +92,6 @@ const SArrowLeft = styled.div`
 
   // background-image: linear-gradient(to bottom, #00000032, #00000019), url(http://localhost:4000/image/1.jpg);
 
-const getImages = () => [...Array(10)].map((img, index) => {return { id: index, src: `${process.env.REACT_APP_SERVER}/image/${index + 1}.jpg` }})
+const getImages = () => [...Array(7)].map((img, index) => {return { id: index, src: `${process.env.REACT_APP_SERVER}/images/slideshow/${index + 1}.jpg` }})
 
 export default Slideshow

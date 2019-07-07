@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "leagle-and-mich-client",
+            "script": "npm",
+            "args" : "run run-production"
+        }
+    ]
+}

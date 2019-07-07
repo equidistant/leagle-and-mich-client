@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import Header from './Header'
 import Home from './Home'
+import Travels from './Travels'
 import Footer from './Footer'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <GlobalStyle />
           <Header />
           <Route exact path='/' component={ Home } />
+          <Route path='/travels' component={ Travels } />
           <Footer />
         </SApp>
       </BrowserRouter>
@@ -50,5 +52,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     letter-spacing: .1rem;
     background: #2B2B2B;
+    color: white;
   }
 `
