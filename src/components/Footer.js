@@ -10,7 +10,7 @@ export default () => {
 }
 
 const SFooter = styled.div`
-  grid-column: start / end;
+  grid-column: 1 / -1;
   display: grid;
   padding: 1rem;
   color: white;

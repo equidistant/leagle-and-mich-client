@@ -64,7 +64,7 @@ const SImg = styled.img.attrs(props => ({
   src: props.img.src
   }))`
   grid-column: start / end;
-  grid-row: 1 / 3;
+  grid-row: 1 / 2;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -73,8 +73,8 @@ const SImg = styled.img.attrs(props => ({
 `
 
 const SArrowRight = styled.div`
-  grid-column: col-start 8 / end;
-  grid-row: 1 / 3;
+  grid-column: next-start / next-end;
+  grid-row: 1 / 2;
   z-index: 1;
   &:hover {
     background-image: linear-gradient(to left, #00000064, #00000050);
@@ -82,8 +82,8 @@ const SArrowRight = styled.div`
 `
 
 const SArrowLeft = styled.div`
-  grid-column: start / col-end 1;
-  grid-row: 1 / 3;
+  grid-column: previous-start / previous-end;
+  grid-row: 1 / 2;
   z-index: 1;
   &:hover {
     background-image: linear-gradient(to right, #00000064, #00000050);

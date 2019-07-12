@@ -27,8 +27,8 @@ export default App
 const SApp = styled.div`
   height: 100%;
   display: grid;
-  grid-template-columns: [start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 13rem) [col-end]) [center-end] 1fr [end];
-  grid-template-rows: 7.5vh min-content min-content 7.5vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 7.5vh min-content 7.5vh;
 `
 
 

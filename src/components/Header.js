@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import Slideshow from './Slideshow'
-import logo from '../images/logo-header.png'
+import { LogoHeaderImg } from '../images'
 
 export default () => {
   return (
@@ -15,7 +15,7 @@ export default () => {
 }
 
 const SHeader = styled.div`
-  grid-column: start / end;
+  grid-column: 1 / -1;
   grid-row: 1 / 2;
   z-index: 1;
   display: flex;
@@ -29,7 +29,7 @@ const SLogo = styled.div`
   height: 17.5vh;
   width: 8rem;
   margin-top: 6.5vh;
-  background-image: url(${logo});
+  background-image: url(${LogoHeaderImg});
   background-position: center;
   background-size: cover;
   z-index: 1;

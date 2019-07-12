@@ -7,3 +7,5 @@ build/
 
 package-lock.json
 npm-debug.log*
+
+old_app/
