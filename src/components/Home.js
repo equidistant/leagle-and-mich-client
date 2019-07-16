@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Navbar from './Navbar'
 import Slideshow from './Slideshow'
 import TravelsGallery from './Travels-Gallery'
+import Footer from './Footer'
 
 class Home extends Component {
   state = {
@@ -20,6 +21,7 @@ class Home extends Component {
         <Navbar small={this.state.small} showNav={this.state.showNav} showHideNav={this.showHideNav}/>
         <Slideshow/>
         <TravelsGallery />
+        <Footer />
       </SHome>
     )
   }
@@ -52,7 +54,7 @@ class Home extends Component {
 const SHome = styled.div`
   display: grid;
   grid-template-columns: [start previous-start] 10% [previous-end center-start nav-start] 8fr [center-end next-start nav-end] 10% [next-end end];
-  grid-template-rows: min-content min-content min-content;
+  grid-template-rows: min-content min-content min-content min-content;
   justify-content: center;
 `
 //
