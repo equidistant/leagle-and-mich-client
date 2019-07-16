@@ -79,6 +79,7 @@ const SArrowRight = styled.div`
   z-index: 2;
   &:hover {
     background-image: linear-gradient(to left, #00000064, #00000050);
+    cursor: pointer;
   }
 `
 
@@ -88,6 +89,7 @@ const SArrowLeft = styled.div`
   z-index: 2;
   &:hover {
     background-image: linear-gradient(to right, #00000064, #00000050);
+    cursor: pointer;
   }
 `
 

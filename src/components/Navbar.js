@@ -65,6 +65,9 @@ const SLogoSmall = styled.div`
   background-image: url(${LogoHeaderImg});
   background-position: center;
   background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const SNavbarBackground = styled.div`
@@ -95,9 +98,9 @@ const SNavbarBackgroundCenterLink = styled.div`
   width: max-content;
   color: white;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 2rem;
   text-transform: uppercase;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   &:hover {
     cursor: pointer;
   }
@@ -190,6 +193,9 @@ const SLink = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
   text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+  }
 `
 const SLogo = styled.div`
   height: 14rem;
@@ -200,6 +206,9 @@ const SLogo = styled.div`
   background-image: url(${LogoHeaderImg});
   background-position: center;
   background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export default Navbar

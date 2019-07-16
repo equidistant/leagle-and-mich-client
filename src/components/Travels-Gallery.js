@@ -11,12 +11,14 @@ class TravelsGallery extends Component {
   }
   cards = []
   observers= []
-
+  sizes = {
+    width: '45rem',
+    height: '30rem'
+  }
   render () {
     return (
       <STravelCards>
-
-        <STravelCardsGrid>
+        <STravelCardsGrid width={this.sizes.width} height={this.sizes.height}>
           {this.renderTravels(this.state)}
         </STravelCardsGrid>
       </STravelCards>
@@ -56,10 +58,10 @@ class TravelsGallery extends Component {
   }
 
   renderTravels = ({ images }) =>
-    images.map((img, index) =>
-    <STravelCard key={index} id={index} ref={card => this.cards.push(card)} visible={this.state.visible[index]}>
-      <SImg img={img}/>
-      <SImgOverlay>
+  images.map((img, index) =>
+    <STravelCard height={this.sizes.height} key={index} id={index} ref={card => this.cards.push(card)} visible={this.state.visible[index]}>
+      <SImg width={this.sizes.width} img={img}/>
+      <SImgOverlay width={this.sizes.width}>
         <SImgOverlayRow><SImgOverlayIcon src={MapImg} /><SImgOverlayText>Soča, Slovenia</SImgOverlayText></SImgOverlayRow>
         <SImgOverlayRow><SImgOverlayIconLarger src={BedImg} /><SImgOverlayText>6 days, 20. - 25.6.2019</SImgOverlayText></SImgOverlayRow>
         <SImgOverlayRow><SImgOverlayText>#roadtrip #camping #river #kayak #rafting #sup </SImgOverlayText></SImgOverlayRow>
@@ -82,9 +84,9 @@ const SHeader = styled.p`
 `
 
 const STravelCardsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 24rem);
-  grid-template-rows: repeat(auto-fit, 16rem);
+  display: grid
+  grid-template-columns: repeat(auto-fit, ${props => props.width});
+  grid-template-rows: repeat(auto-fit, ${props => props.height});
   grid-gap: 2rem;
   justify-content: center;
 `
@@ -95,7 +97,7 @@ const SImg = styled.img.attrs(props => ({
   background-size: cover;
   background-position: center;
   opacity: 1;
-  width: 24rem;
+  width: 100%;
   backface-visibility: hidden;
   transition: all 0.5s ease-in;
   grid-column: 1 / -1;
@@ -105,7 +107,7 @@ const SImg = styled.img.attrs(props => ({
 
 const SImgOverlay = styled.div`
   transition: .5s ease-out;
-  width: 24rem;
+  width: 100%;
   opacity: 0;
   text-align: center;
   grid-column: 1 / -1;
@@ -123,13 +125,15 @@ const STravelCard = styled.div`
   opacity: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 16rem;
+  grid-template-rows: 100%;
 
   &:hover ${SImg} {
     opacity: 0.3;
+    cursor: pointer;
   }
   &:hover ${SImgOverlay}{
     opacity: 1;
+    cursor: pointer;
   }
 `
 // ${props => props.visible && css`animation: ${slideUp} 0.5s linear;`}
@@ -144,6 +148,7 @@ const SImgOverlayRow = styled.div`
 const SImgOverlayText = styled.div`
   color: white;
   z-index: 1;
+  font-size: 1.5rem;
 `
 
 const SImgOverlayIcon = styled.img`
