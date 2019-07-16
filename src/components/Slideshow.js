@@ -76,7 +76,7 @@ const SImg = styled.img.attrs(props => ({
 const SArrowRight = styled.div`
   grid-column: next-start / next-end;
   grid-row: 1 / 3;
-  z-index: 1;
+  z-index: 2;
   &:hover {
     background-image: linear-gradient(to left, #00000064, #00000050);
   }
@@ -85,7 +85,7 @@ const SArrowRight = styled.div`
 const SArrowLeft = styled.div`
   grid-column: previous-start / previous-end;
   grid-row: 1 / 3;
-  z-index: 1;
+  z-index: 2;
   &:hover {
     background-image: linear-gradient(to right, #00000064, #00000050);
   }

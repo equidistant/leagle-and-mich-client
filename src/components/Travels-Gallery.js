@@ -69,6 +69,7 @@ class TravelsGallery extends Component {
 
 const STravelCards = styled.div`
   grid-column: center-start / center-end;
+  grid-row: 3 / 4;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   color: white;

@@ -50,7 +50,7 @@ const SNavbarSmall = styled.div`
   grid-column: nav-start / nav-end;
   grid-row: 1 / 2;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
   align-self: start;
   justify-self: start;
   display: flex;
@@ -68,13 +68,14 @@ const SLogoSmall = styled.div`
 `
 
 const SNavbarBackground = styled.div`
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
+  position: fixed;
+  width: 0;
+  height: 100vh;
   background-color: #2B2B2B;
-  z-index: 2;
+  z-index: 3;
   opacity: 0;
   transition: all 0.3s linear;
-  ${props => props.showNav && css `opacity: 0.7;`}
+  ${props => props.showNav && css `opacity: 0.9; width: 100%;`}
 `
 
 const SNavbarBackgroundCenter = styled.div`
@@ -82,16 +83,16 @@ const SNavbarBackgroundCenter = styled.div`
   width: min-content;
   height: min-content;
   flex-direction: column;
-  margin-top: 10vw;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   align-items: center;
   justify-content: center;
 `
 
 const SNavbarBackgroundCenterLink = styled.div`
   width: max-content;
-  height: min-content;
   color: white;
   text-align: center;
   font-size: 1.6rem;
