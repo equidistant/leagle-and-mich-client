@@ -47,7 +47,8 @@ class Navbar extends Component {
 // small Navbar
 
 const SNavbarSmall = styled.div`
-  position: fixed;
+  grid-column: nav-start / nav-end;
+  grid-row: 1 / 2;
   width: 100%;
   z-index: 4;
   align-self: start;
@@ -55,6 +56,7 @@ const SNavbarSmall = styled.div`
   display: flex;
   justify-content: space-between;
   text-transform: uppercase;
+  position: relative;
 `
 
 const SLogoSmall = styled.div`
@@ -171,7 +173,6 @@ const SCloseButton = styled.div`
 // big Navbar
 
 const SNavbar = styled.div`
-  position: absolute;
   grid-column: nav-start / nav-end;
   grid-row: 1 / 2;
   width: 100%;

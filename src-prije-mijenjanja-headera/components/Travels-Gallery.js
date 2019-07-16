@@ -12,16 +12,8 @@ class TravelsGallery extends Component {
   cards = []
   observers= []
   sizes = {
-    width: {
-      small: '36rem',
-      normal: '45rem',
-      large: '54rem'
-    },
-    height: {
-      small: '24rem',
-      normal: '30rem',
-      large: '36rem'
-    }
+    width: '45rem',
+    height: '30rem'
   }
   render () {
     return (
@@ -67,9 +59,9 @@ class TravelsGallery extends Component {
 
   renderTravels = ({ images }) =>
   images.map((img, index) =>
-    <STravelCard key={index} id={index} ref={card => this.cards.push(card)} visible={this.state.visible[index]}>
-      <SImg img={img}/>
-      <SImgOverlay>
+    <STravelCard height={this.sizes.height} key={index} id={index} ref={card => this.cards.push(card)} visible={this.state.visible[index]}>
+      <SImg width={this.sizes.width} img={img}/>
+      <SImgOverlay width={this.sizes.width}>
         <SImgOverlayRow><SImgOverlayIcon src={MapImg} /><SImgOverlayText>Soča, Slovenia</SImgOverlayText></SImgOverlayRow>
         <SImgOverlayRow><SImgOverlayIconLarger src={BedImg} /><SImgOverlayText>6 days, 20. - 25.6.2019</SImgOverlayText></SImgOverlayRow>
         <SImgOverlayRow><SImgOverlayText>#roadtrip #camping #river #kayak #rafting #sup </SImgOverlayText></SImgOverlayRow>
@@ -78,7 +70,7 @@ class TravelsGallery extends Component {
 }
 
 const STravelCards = styled.div`
-  grid-column: start / end;
+  grid-column: center-start / center-end;
   grid-row: 3 / 4;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -93,20 +85,8 @@ const SHeader = styled.p`
 
 const STravelCardsGrid = styled.div`
   display: grid
-  grid-template-columns: repeat(auto-fit, ${props => props.width.large});
-  grid-template-rows: repeat(auto-fit, ${props => props.height.large});
-  @media screen and (max-width: 1020px) {
-    grid-template-columns: repeat(auto-fit, ${props => props.width.normal});
-    grid-template-rows: repeat(auto-fit, ${props => props.height.normal});
-  }
-  @media screen and (max-width: 765px) {
-    grid-template-columns: repeat(auto-fit, ${props => props.width.small});
-    grid-template-rows: repeat(auto-fit, ${props => props.height.small});
-  }
-  @media screen and (max-width: 620px) {
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(auto-fit, 63vw);
-  }
+  grid-template-columns: repeat(auto-fit, ${props => props.width});
+  grid-template-rows: repeat(auto-fit, ${props => props.height});
   grid-gap: 2rem;
   justify-content: center;
 `

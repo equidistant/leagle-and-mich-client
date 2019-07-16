@@ -12,7 +12,7 @@ export default () => {
 const SFooter = styled.div`
   grid-column: 1 / -1;
   display: grid;
-  height: 7.5rem;
+  height: 5rem;
   padding: 1rem;
   color: white;
   background-image: linear-gradient(to bottom, #0000004B, #0000004B);

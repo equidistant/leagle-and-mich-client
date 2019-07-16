@@ -2,54 +2,21 @@ import React, { Component } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import Navbar from './Navbar'
+import Header from './Header'
 import Home from './Home'
 import Travels from './Travels'
 import Footer from './Footer'
 
 class App extends Component {
-  state = {
-    showTravels: false,
-    showNav: false,
-    small: false
-  }
-  sizes = {
-    small: 790
-  }
   render() {
     return (
       <BrowserRouter>
         <SApp>
           <GlobalStyle />
-          <Navbar small={this.state.small} showNav={this.state.showNav} showHideNav={this.showHideNav}/>
-          <Route exact path='/' render={() =>
-              <Home small={this.state.small} showTravels={this.state.showTravels} showNav={this.state.showNav} /> } />
+          <Route exact path='/' component={ Home } />
         </SApp>
       </BrowserRouter>
     )
-  }
-  componentDidMount() {
-    setTimeout(
-      () => this.setState({ showTravels: true }), 100)
-    window.addEventListener('resize', this.resizeListener.bind(this))
-    this.resizeListener()
-  }
-  resizeListener () {
-    if (window.innerWidth < this.sizes.small) {
-      this.setState({
-        small: true
-      })
-    } else if (this.state.small){
-      this.setState({
-        small: false,
-        showNav: false
-      })
-    }
-  }
-  showHideNav = () => {
-    this.setState({
-      showNav: !this.state.showNav
-    })
   }
 }
 export default App
