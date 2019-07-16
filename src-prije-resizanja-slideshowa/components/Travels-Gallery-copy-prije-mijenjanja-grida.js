@@ -15,14 +15,14 @@ class TravelsGallery extends Component {
   render () {
     return (
       <STravelCards>
-
+        <SHeader>Our Travels</SHeader>
         <STravelCardsGrid>
           {this.renderTravels(this.state)}
         </STravelCardsGrid>
       </STravelCards>
     )
   }
-//         <SHeader>Our Travels</SHeader>
+
   componentDidMount () {
     const observerOptions = {
       root: null,
@@ -74,18 +74,16 @@ const STravelCards = styled.div`
   color: white;
 `
 
-const SHeader = styled.p`
+const SHeader = styled.h1`
   width: max-content;
-  font-size: 4rem;
   margin: 0 auto 2.5rem auto;
 `
 
 const STravelCardsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, 24rem);
-  grid-template-rows: repeat(auto-fit, 16rem);
+  grid-template-columns: repeat(auto-fit, minmax(22rem, min-content));
   grid-gap: 2rem;
-  justify-content: center;
+
 `
 
 const SImg = styled.img.attrs(props => ({
@@ -94,7 +92,7 @@ const SImg = styled.img.attrs(props => ({
   background-size: cover;
   background-position: center;
   opacity: 1;
-  width: 24rem;
+  height: 100%;
   backface-visibility: hidden;
   transition: all 0.5s ease-in;
   grid-column: 1 / -1;
@@ -104,7 +102,7 @@ const SImg = styled.img.attrs(props => ({
 
 const SImgOverlay = styled.div`
   transition: .5s ease-out;
-  width: 24rem;
+  width: 22rem;
   opacity: 0;
   text-align: center;
   grid-column: 1 / -1;
@@ -115,6 +113,7 @@ const SImgOverlay = styled.div`
 `
 
 const STravelCard = styled.div`
+  height: 15rem;
   ${props => props.visible && css`
     animation: ${slideUp} 0.4s ease-out;
     animation-fill-mode: forwards;
@@ -122,7 +121,7 @@ const STravelCard = styled.div`
   opacity: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 16rem;
+  grid-template-rows: 15rem;
 
   &:hover ${SImg} {
     opacity: 0.3;
@@ -159,6 +158,6 @@ const SImgOverlayIconLarger = styled.img`
   margin-right: 0.5rem;
 `
 
-const getImages = () => [...Array(13)].map((img, index) => {return { id: index, src: `${process.env.REACT_APP_SERVER}/images/travels/${index + 1}.jpg` }})
+const getImages = () => [...Array(14)].map((img, index) => {return { id: index, src: `${process.env.REACT_APP_SERVER}/images/travels/${index + 1}.jpg` }})
 
 export default TravelsGallery

@@ -13,7 +13,10 @@ class App extends Component {
       <BrowserRouter>
         <SApp>
           <GlobalStyle />
+          <Header />
           <Route exact path='/' component={ Home } />
+          <Route path='/travels' component={ Travels } />
+          <Footer />
         </SApp>
       </BrowserRouter>
     )
@@ -23,6 +26,9 @@ export default App
 
 const SApp = styled.div`
   height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 7.5vh min-content 7.5vh;
 `
 
 
@@ -31,18 +37,8 @@ const GlobalStyle = createGlobalStyle`
   html, body, #root {
     height: 100%;
   }
-  html {
+  html: {
     font-size: 62.5%;
-
-    @media screen and (max-width: 1500px) {
-      font-size: 56.25%;
-    }
-    @media screen and (max-width: 890px) {
-      font-size: 50%;
-    }
-    @media screen and (max-width: 500px) {
-      font-size: 40%;
-    }
   }
   *, *::after, *::before {
     margin: 0;
@@ -54,14 +50,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', 'Source Serif Pro','Source Code Pro', monospace;
     font-weight: 400;
     line-height: 1.2;
-    letter-spacing: .2rem;
+    letter-spacing: .1rem;
     background: #2B2B2B;
     color: white;
   }
 `
-
-// @media all and (max-width: 1500px) {
-//   html {
-//     font-size: 56.25%;
-//   }
-// }

@@ -1,33 +1,57 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import Navbar from './Navbar'
 import Slideshow from './Slideshow'
 import TravelsGallery from './Travels-Gallery'
 
 class Home extends Component {
   state = {
-    showTravels: false
+    showTravels: false,
+    showNav: false,
+    small: false
+  }
+  sizes = {
+    small: 790
   }
   render () {
     return (
       <SHome>
+        <Navbar small={this.state.small} showNav={this.state.showNav} showHideNav={this.showHideNav}/>
         <Slideshow/>
-        {this.state.showTravels && <TravelsGallery/>}
       </SHome>
     )
   }
   componentDidMount() {
     setTimeout(
       () => this.setState({ showTravels: true }), 100)
+    window.addEventListener('resize', this.resizeListener.bind(this))
+    this.resizeListener()
+  }
+  resizeListener () {
+    if (window.innerWidth < this.sizes.small) {
+      this.setState({
+        small: true
+      })
+    } else if (this.state.small){
+      this.setState({
+        small: false,
+        showNav: false
+      })
+    }
+  }
+  showHideNav = () => {
+    this.setState({
+      showNav: !this.state.showNav
+    })
   }
 }
 
+
 const SHome = styled.div`
-  grid-column: 1 / -1;
-  grid-row: 1 / 3;
   display: grid;
-  grid-template-columns: [start previous-start] 5vw [previous-end center-start] 1fr [center-end next-start] 5vw [next-end end];
-  grid-template-rows:  min-content min-content;
+  grid-template-columns: [start previous-start] 10% [previous-end center-start nav-start] 8fr [center-end next-start nav-end] 10% [next-end end];
+  grid-template-rows: min-content min-content;
   justify-content: center;
 `
 //
