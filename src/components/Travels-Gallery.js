@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled, { css } from 'styled-components'
 
-import { slideUp } from '../animations'
+import { slideUp, slideLeft, slideRight } from '../animations'
 import { BedImg, MapImg } from '../images'
 
 class TravelsGallery extends Component {
@@ -15,17 +15,18 @@ class TravelsGallery extends Component {
     width: {
       small: '36rem',
       normal: '45rem',
-      large: '54rem'
+      large: '51rem'
     },
     height: {
       small: '24rem',
       normal: '30rem',
-      large: '36rem'
+      large: '34rem'
     }
   }
   render () {
     return (
       <STravelCards>
+        <SHeader>Recent Travel Blogs</SHeader>
         <STravelCardsGrid width={this.sizes.width} height={this.sizes.height}>
           {this.renderTravels(this.state)}
         </STravelCardsGrid>
@@ -70,15 +71,15 @@ class TravelsGallery extends Component {
     <STravelCard key={index} id={index} ref={card => this.cards.push(card)} visible={this.state.visible[index]}>
       <SImg img={img}/>
       <SImgOverlay>
-        <SImgOverlayRow><SImgOverlayIcon src={MapImg} /><SImgOverlayText>Soča, Slovenia</SImgOverlayText></SImgOverlayRow>
-        <SImgOverlayRow><SImgOverlayIconLarger src={BedImg} /><SImgOverlayText>6 days, 20. - 25.6.2019</SImgOverlayText></SImgOverlayRow>
-        <SImgOverlayRow><SImgOverlayText>#roadtrip #camping #river #kayak #rafting #sup </SImgOverlayText></SImgOverlayRow>
+        <SImgOverlayRowLocation><SImgOverlayIcon src={MapImg} /><SImgOverlayText>Soča, Slovenia</SImgOverlayText></SImgOverlayRowLocation>
+        <SImgOverlayRowLength><SImgOverlayIconLarger src={BedImg} /><SImgOverlayText>6 days, 20. - 25.6.2019</SImgOverlayText></SImgOverlayRowLength>
+        <SImgOverlayRowTags><SImgOverlayText>#roadtrip #camping #river #kayak #rafting #sup </SImgOverlayText></SImgOverlayRowTags>
       </SImgOverlay>
     </STravelCard>)
 }
 
 const STravelCards = styled.div`
-  grid-column: start / end;
+  grid-column: center-start / center-end;
   grid-row: 3 / 4;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -87,25 +88,33 @@ const STravelCards = styled.div`
 
 const SHeader = styled.p`
   width: max-content;
-  font-size: 4rem;
-  margin: 0 auto 2.5rem auto;
+  font-size: 3.5rem;
+  margin: 2.5rem auto 4rem auto;
 `
 
 const STravelCardsGrid = styled.div`
   display: grid
   grid-template-columns: repeat(auto-fit, ${props => props.width.large});
   grid-template-rows: repeat(auto-fit, ${props => props.height.large});
-  @media screen and (max-width: 1020px) {
+  @media screen and (max-width: 1760px) {
     grid-template-columns: repeat(auto-fit, ${props => props.width.normal});
     grid-template-rows: repeat(auto-fit, ${props => props.height.normal});
   }
-  @media screen and (max-width: 765px) {
-    grid-template-columns: repeat(auto-fit, ${props => props.width.small});
-    grid-template-rows: repeat(auto-fit, ${props => props.height.small});
+  @media screen and (max-width: 1560px) {
+    grid-template-columns: repeat(auto-fit, ${props => props.width.large});
+    grid-template-rows: repeat(auto-fit, ${props => props.height.large});
   }
-  @media screen and (max-width: 620px) {
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(auto-fit, 63vw);
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: repeat(auto-fit, ${props => props.width.normal});
+    grid-template-rows: repeat(auto-fit, ${props => props.height.normal});
+  }
+  @media screen and (max-width: 940px) {
+    grid-template-columns: repeat(auto-fit, ${props => props.width.large});
+    grid-template-rows: repeat(auto-fit, ${props => props.height.large});
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto-fit, 60vw);
   }
   grid-gap: 2rem;
   justify-content: center;
@@ -137,6 +146,26 @@ const SImgOverlay = styled.div`
   align-items: center;
 `
 
+const SImgOverlayRowLocation = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const SImgOverlayRowLength = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const SImgOverlayRowTags = styled.div`
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+`
+
 const STravelCard = styled.div`
   ${props => props.visible && css`
     animation: ${slideUp} 0.4s ease-out;
@@ -155,36 +184,39 @@ const STravelCard = styled.div`
     opacity: 1;
     cursor: pointer;
   }
+  &:hover ${SImgOverlayRowLocation} {
+    animation: ${slideRight} 0.5s ease-out;
+    animation-fill-mode: forwards;
+  }
+  &:hover ${SImgOverlayRowLength} {
+    animation: ${slideLeft} 0.5s ease-out;
+    animation-fill-mode: forwards;
+  }
+  &:hover ${SImgOverlayRowTags} {
+    animation: ${slideRight} 0.5s ease-out;
+    animation-fill-mode: forwards;
+  }
 `
-// ${props => props.visible && css`animation: ${slideUp} 0.5s linear;`}
-//   ${props => props.visible && css`animation: ${slideUp} 0.5s linear;`}
-
-const SImgOverlayRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
 const SImgOverlayText = styled.div`
   color: white;
   z-index: 1;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 `
 
 const SImgOverlayIcon = styled.img`
   z-index: 1;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   margin-right: 1rem;
 `
 
 const SImgOverlayIconLarger = styled.img`
   z-index: 1;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   margin-right: 0.5rem;
 `
 
-const getImages = () => [...Array(13)].map((img, index) => {return { id: index, src: `${process.env.REACT_APP_SERVER}/images/travels/${index + 1}.jpg` }})
+const getImages = () => [...Array(6)].map((img, index) => {return { id: index, src: `${process.env.REACT_APP_SERVER}/images/travels/${index + 1}.jpg` }})
 
 export default TravelsGallery

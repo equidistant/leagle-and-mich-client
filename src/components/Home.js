@@ -21,7 +21,7 @@ class Home extends Component {
 
 const SHome = styled.div`
   display: grid;
-  grid-template-columns: [start previous-start] 10% [previous-end center-start nav-start] 8fr [center-end next-start nav-end] 10% [next-end end];
+  grid-template-columns: [start previous-start] 5vw [previous-end center-start nav-start] 8fr [center-end next-start nav-end] 5vw [next-end end];
   grid-template-rows: min-content min-content min-content;
   justify-content: center;
 `
