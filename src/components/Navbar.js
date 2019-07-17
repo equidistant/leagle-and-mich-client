@@ -187,7 +187,8 @@ const SLink = styled.div`
   height: 6rem;
   color: white;
   text-align: center;
-  font-size: 1.7rem;
+  font-family: 'Bubbler One';
+  font-size: 2rem;
   align-self: flex-end;
   margin-left: 1rem;
   margin-right: 1rem;

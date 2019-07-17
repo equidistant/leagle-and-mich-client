@@ -60,7 +60,7 @@ const SApp = styled.div`
 
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Serif+Pro');
+  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Serif+Pro|Bubbler+One');
   html, body, #root {
     height: 100%;
   }
