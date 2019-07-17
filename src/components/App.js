@@ -14,7 +14,7 @@ class App extends Component {
     small: false
   }
   sizes = {
-    small: 700
+    small: 760
   }
   render() {
     return (
@@ -67,15 +67,10 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 920px) {
       font-size: 56.25%;
     }
-    @media screen and (max-width: 830px) {
-      font-size: 50%;
-    }
-    @media screen and (max-width: 500px) {
-      font-size: 40%;
-    }
+
   }
   *, *::after, *::before {
     margin: 0;
@@ -92,6 +87,16 @@ const GlobalStyle = createGlobalStyle`
     color: white;
   }
 `
+
+// @media screen and (max-width: 1200px) {
+//   font-size: 56.25%;
+// }
+// @media screen and (max-width: 830px) {
+//   font-size: 50%;
+// }
+// @media screen and (max-width: 500px) {
+//   font-size: 45%;
+// }
 
 // @media all and (max-width: 1500px) {
 //   html {

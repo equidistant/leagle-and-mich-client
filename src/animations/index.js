@@ -17,7 +17,7 @@ export const slideUp = keyframes`
 export const slideLeft = keyframes`
   0% {
     opacity: 0;
-    transform: translate3d(2.5vw, 0, 0);
+    transform: translate3d(5vw, 0, 0);
   }
   95% {
     transform: translate3d(-0.15rem,0, 0);
@@ -31,7 +31,7 @@ export const slideLeft = keyframes`
 export const slideRight = keyframes`
   0% {
     opacity: 0;
-    transform: translate3d(-2.5vw, 0, 0);
+    transform: translate3d(-5vw, 0, 0);
   }
   95% {
     transform: translate3d(0.15rem,0, 0);

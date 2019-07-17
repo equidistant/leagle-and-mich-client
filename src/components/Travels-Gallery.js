@@ -28,7 +28,7 @@ class TravelsGallery extends Component {
   render () {
     return (
       <STravelCards>
-        <SHeader>Recent Travel Blogs</SHeader>
+        <SHeader>Travel Blogs</SHeader>
         <STravelCardsGrid width={this.sizes.width} height={this.sizes.height}>
           {this.renderTravels(this.state)}
         </STravelCardsGrid>
@@ -98,23 +98,23 @@ const STravelCardsGrid = styled.div`
   display: grid
   grid-template-columns: repeat(auto-fit, ${props => props.width.large});
   grid-template-rows: repeat(auto-fit, ${props => props.height.large});
-  @media screen and (max-width: 1760px) {
+  @media screen and (max-width: 1765px) {
     grid-template-columns: repeat(auto-fit, ${props => props.width.normal});
     grid-template-rows: repeat(auto-fit, ${props => props.height.normal});
   }
-  @media screen and (max-width: 1560px) {
+  @media screen and (max-width: 1565px) {
     grid-template-columns: repeat(auto-fit, ${props => props.width.large});
     grid-template-rows: repeat(auto-fit, ${props => props.height.large});
   }
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(auto-fit, ${props => props.width.normal});
     grid-template-rows: repeat(auto-fit, ${props => props.height.normal});
   }
-  @media screen and (max-width: 940px) {
+  @media screen and (max-width: 1040px) {
     grid-template-columns: repeat(auto-fit, ${props => props.width.small});
     grid-template-rows: repeat(auto-fit, ${props => props.height.small});
   }
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 760px) {
     grid-template-columns: 100%;
     grid-template-rows: repeat(auto-fit, 60vw);
   }
@@ -203,6 +203,15 @@ const SImgOverlayText = styled.div`
   color: white;
   z-index: 1;
   font-size: 1.8rem;
+  @media screen and (max-width: 1040px) {
+    font-size: 1.4rem;
+  }
+  @media screen and (max-width: 760px) {
+    font-size: 1.8rem;
+  }
+  @media screen and (max-width: 520px) {
+    font-size: 1.4rem;
+  }
 `
 
 const SImgOverlayIcon = styled.img`
