@@ -14,7 +14,7 @@ class App extends Component {
     small: false
   }
   sizes = {
-    small: 790
+    small: 700
   }
   render() {
     return (

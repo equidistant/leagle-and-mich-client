@@ -13,14 +13,16 @@ class TravelsGallery extends Component {
   observers= []
   sizes = {
     width: {
-      small: '36rem',
+      large: '51rem',
       normal: '45rem',
-      large: '51rem'
+      small: '36rem',
+      smallest: '30rem'
     },
     height: {
-      small: '24rem',
+      large: '34rem',
       normal: '30rem',
-      large: '34rem'
+      small: '24rem',
+      smallest: '20rem'
     }
   }
   render () {
@@ -109,10 +111,10 @@ const STravelCardsGrid = styled.div`
     grid-template-rows: repeat(auto-fit, ${props => props.height.normal});
   }
   @media screen and (max-width: 940px) {
-    grid-template-columns: repeat(auto-fit, ${props => props.width.large});
-    grid-template-rows: repeat(auto-fit, ${props => props.height.large});
+    grid-template-columns: repeat(auto-fit, ${props => props.width.small});
+    grid-template-rows: repeat(auto-fit, ${props => props.height.small});
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 680px) {
     grid-template-columns: 100%;
     grid-template-rows: repeat(auto-fit, 60vw);
   }
